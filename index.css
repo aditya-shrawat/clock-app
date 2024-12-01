@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Outer-hero-container{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+}
+
+#sidebar-placeholder{
+    height: 100%;
+    width: 345px;
+    max-width: 345px;
+    min-width: 245px;
+}
+
+#dynamicMainContent{
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,615 @@
+
+
+:root {
+    --backgroundColor: #F8F9FA;
+    --borderColor: #e5e7eb;
+    --hoverColor: #E9ECEF;
+}
+
+
+.alarm-outer-hero-container{
+    /* position: relative; */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+}
+
+.alarm-outer-main-container{
+
+    height: 100%;
+    width: 100%;
+}
+
+.alarm-inner-main-container{
+
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-x: auto;
+
+    padding: 50px; 
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 15px; 
+}
+
+
+.alarm-content-div-container{
+    background-color: var(--backgroundColor);
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+
+    height: 200px; 
+    max-width: 400px;
+
+    padding: 10px 15px ;
+
+    position: relative;
+}
+
+
+/* .content-container{
+    margin: auto;
+    width: 330px;
+    height: 100%;
+
+    padding: 20px 20px;
+
+    background-color: yellow;
+} */
+
+.alarmTime-div{
+    display: flex;
+    align-items: center;
+}
+
+.alarmTime-div span{
+    display: block;
+
+    font-size: 50px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+.remaning-t-div{
+    font-size: 14px;
+    font-weight: 500;
+    color: #909090;
+}
+
+.alarm-content-div-container .alarm-heading{
+    font-size: 22px;
+    font-weight: 500;
+    color: #374151;
+}
+
+
+.deleteBtn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    padding: 8px;
+    border-radius: 8px;
+
+    font-size: 16px;
+    color: #374151;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    background-color: var(--hoverColor);
+}
+
+
+.days-container2{
+    margin-top: 10px;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.days1{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    /* color: #4F8EF4; */
+    color: #909090;
+    font-size: 12px;
+
+    /* border: 2px solid #f9fafb; */
+}
+
+ .days1.active{
+    background-color: #4F8EF4;
+    color: #fff;
+}
+
+.alarm-add-button-container{
+    width: auto;
+    height: auto; 
+    z-index: 2;   
+
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.add-button-container{
+    width: 60px;
+    height: 50px;
+
+    border: 2px solid var(--borderColor);
+    border-radius: 8px;
+    background-color: var(--backgroundColor);
+
+    box-shadow: 5px 8px 10px #c9cccf;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+.add-button-container i{
+    font-size: 20px;
+    font-weight: 500;
+    color: #4b5563;
+
+    padding: 7px 10px;
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+.addBlure{
+    filter: blur(5px); 
+    transition: filter 0.3s ease;
+}
+
+.outerContainer{
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.add-alarm-model-hero{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 400px;
+    height: auto;
+
+    z-index: 10;
+}
+
+.add-alarm-model{
+    background-color: var(--backgroundColor);
+
+    width: 100%;
+    height: 100%;
+
+    padding: 25px 20px;
+    border-radius: 8px;
+
+    z-index: 10;
+}
+
+.add-alarm-model h2{
+    font-size: 23px;
+    font-weight: 500;
+    color: #4b5563;
+
+    margin-bottom: 10px;
+
+}
+
+.add-alarm-model .alarm-heading-edit{
+    width: 100%;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+}
+
+.alarm-heading-edit i{
+    font-size: 18px;
+    margin-right: 13px;
+    color: #4b5563;
+}
+
+.alarm-heading-edit input{
+    height: 100%;
+    width: 100%;
+
+    padding: 5px 10px;
+    border: 2px solid var(--borderColor);
+    outline: none;
+    border-radius: 5px;
+
+    font-size: 18px;
+}
+
+.repetation-selector-container{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 20px;
+}
+
+.raioBtn-container{
+    display: flex;
+    justify-content:flex-start;
+    align-items: baseline;
+
+    margin-bottom: 15px;
+}
+
+.raioBtn-container input{
+    height: 18px;
+    width: 18px;
+
+    margin-right: 8px;
+}
+
+.raioBtn-container {
+    /* font-size: 30px; */
+    font-weight: 500;
+    font-size: 17px;
+}
+
+
+.days-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.daysL{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: #4F8EF4;
+
+    border: 2px solid #4F8EF4;
+    cursor: pointer;
+}
+
+ .daysL.active{
+    background-color: #4F8EF4;
+    color: #fff;
+}
+
+.repetation-selector-container p{
+    font-size: 14px;
+    color: gray;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+
+.submit-button-container-hero{
+    width: 100%;
+
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-button-container button{
+    width: 48%;
+    background-color: #fff;
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 2px solid var(--borderColor) ;
+    outline: none;
+}
+
+.submit-button-container button i{
+    margin-right: 12px;
+}
+
+
+.submit-button-container #saveAlarm{
+    background-color: #4F8EF4;
+    color: #fff;
+    border: none;
+}
+
+
+.alarm-selector-hero{
+    margin: 20px 0;
+}
+
+.number-scroller-container{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid var(--borderColor);
+    border-bottom: 5px solid #4F8EF4;
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.number-scroller-container div{
+    width: 150px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-scroller-container div span{
+    display: block;
+    color: #444e5d;
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.number-scroller-container .dots{
+    display: block;
+    width: 30px;
+
+    color: #444e5d;
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+
+}
+
+
+.up-scroller-btn-hero-container{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 8px;
+}
+
+.up-scroller-btn-hero-container .upscroller-btn-container{
+    width: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upscroller-btn-container i{
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.upscroller-btn-container i:hover{
+    background-color: var(--hoverColor);
+}
+
+
+.down-scroller-btn-hero-container{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 8px;
+}
+
+.down-scroller-btn-hero-container .downscroller-btn-container{
+    width: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.downscroller-btn-container i{
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.downscroller-btn-container i:hover{
+    background-color: var(--hoverColor);
+}
+
+
+
+
+/*  css for alarm popup (close-snooze popup) */
+
+.alarm-popup-div-container{
+
+    position: absolute;
+    bottom: 20px;
+    /* bottom: -280px; */
+    right: 20px;
+
+    width: 370px;
+    height: 250px;
+    padding: 15px ;
+
+    display: block;
+
+    background-color: var(--backgroundColor);
+    border-radius: 8px;
+
+    z-index: 3;
+
+    animation: fadeIn 0.3s ease-in-out; 
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      bottom: -280px;
+    }
+    to {
+      opacity: 1;
+      bottom: 20px;
+    }
+  }
+
+
+.alarm-heading-popup{
+    font-size: 18px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.alarmTime-popup-div{
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.alarmTime-popup-div span{
+    display: block;
+
+    font-size: 30px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+.snooze-text{
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+
+    margin-bottom: 10px;
+}
+
+.snooze_Select{
+    background-color: #f9fafb;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+
+    outline: none;
+    border: 2px solid #f9fafb;
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: #374151;
+}
+
+
+.popup-buttons-container{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-buttons-container button{
+    width: 48%;
+    background-color: var(--hoverColor);
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 5px 15px;
+    border-radius: 8px;
+
+    border: 2px solid var(--borderColor) ;
+    outline: none;
+}
+
+.popup-buttons-container button:hover{
+    background-color: #fff ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

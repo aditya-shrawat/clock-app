@@ -1,0 +1,539 @@
+
+
+:root {
+    --backgroundColor: #F8F9FA;
+    --borderColor: #e5e7eb;
+    --hoverColor: #E9ECEF;
+}
+
+.timer-outer-hero-containerr{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+}
+
+.timer-outer-main-container {
+    height: 100%;
+    width: 100%;
+}
+
+.timer-inner-main-container{
+    height: 100%;
+    width: 100%;
+    
+    overflow-x: auto;
+    padding: 50px; 
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 15px; 
+}
+
+.timer-content-div-container{
+    background-color: var(--backgroundColor); 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--borderColor);  
+
+    height: 330px; 
+    padding: 15px ;
+    max-width: 400px;
+
+    border-radius: 5px;
+
+    position: relative;
+}
+
+.timer-content-div-container .timer-heading{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.deleteBtn{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    padding: 8px;
+    border-radius: 8px;
+
+    font-size: 16px;
+    color: #374151;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    background-color: var(--hoverColor);
+}
+
+
+
+.circular-progress {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#4F8EF4 360deg, #E9ECEF 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    border: 1px solid var(--borderColor);
+  }
+  .inner-circle {
+    width: 160px;
+    height: 160px;
+    background-color: var(--backgroundColor);
+    border-radius: 50%;
+    position: absolute;
+
+    box-shadow: 1px 1px 5px rgb(193, 191, 191);
+
+    border: 1px solid var(--borderColor);
+  }
+
+.circular-progress .timerTime-div{
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.timerTime-div span{
+    display: block;
+
+    font-size: 35px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+.timer-button-container{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 15px;
+}
+
+.timer-btns{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    color: rgb(88, 88, 88);
+    font-size: 17px;
+    text-align: center;
+    border:3px solid var(--borderColor);
+    outline: none;
+    cursor: pointer;
+}
+
+.enabled:hover{
+    background-color: #f3f4f6;
+}
+
+.timer-button-container .startBtn{
+    border: none;
+    background-color: #4F8EF4;
+    color: #fff;
+
+    margin-right: 20px;
+}
+.timer-button-container .startBtn:hover{
+    background-color: #669bf1;
+}
+
+.disabled{
+    background-color: #e5e7eb;
+    color: gray;
+}
+
+
+.timer-add-button-container{
+    width: auto;
+    height: auto;    
+
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    z-index: 2;
+}
+
+.add-button-container{
+    width: 60px;
+    height: 50px;
+
+    border: 2px solid var(--borderColor);
+    border-radius: 8px;
+    background-color: var(--backgroundColor);
+
+    box-shadow: 5px 8px 10px #c9cccf;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+.add-button-container i{
+    font-size: 20px;
+    font-weight: 500;
+    color: #4b5563;
+
+    padding: 7px 10px;
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+.addBlure{
+    filter: blur(5px); 
+    transition: filter 0.3s ease;
+}
+
+.outerContainer{
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.add-timer-model-hero{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 400px;
+    height: auto;
+
+    z-index: 10;
+}
+
+.add-timer-model{
+    background-color: var(--backgroundColor);
+
+    width: 100%;
+    height: 100%;
+
+    padding: 25px 20px;
+    border-radius: 8px;
+
+    z-index: 10;
+}
+
+.add-timer-model h2{
+    font-size: 23px;
+    font-weight: 500;
+    color: #4b5563;
+
+    margin-bottom: 10px;
+
+}
+
+.add-timer-model .timer-heading-edit{
+    width: 100%;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+}
+
+.timer-heading-edit i{
+    font-size: 18px;
+    margin-right: 13px;
+    color: #4b5563;
+}
+
+.timer-heading-edit input{
+    height: 100%;
+    width: 100%;
+
+    padding: 5px 10px;
+    border: 2px solid var(--borderColor);
+    outline: none;
+    border-radius: 5px;
+
+    font-size: 18px;
+}
+
+
+.submit-button-container-hero{
+    width: 100%;
+
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-button-container button{
+    width: 48%;
+    background-color: #fff;
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 2px solid var(--borderColor) ;
+    outline: none;
+}
+
+.submit-button-container button i{
+    margin-right: 12px;
+}
+
+
+.submit-button-container #saveTimer{
+    background-color: #4F8EF4;
+    color: #fff;
+    border: none;
+}
+
+
+.timer-selector-hero{
+    margin: 20px 0;
+}
+
+.number-scroller-container{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid var(--borderColor);
+    border-bottom: 5px solid #4F8EF4;
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.number-scroller-container div{
+    width: 100px;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-scroller-container div span{
+    display: block;
+    color: #444e5d;
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.number-scroller-container .dots{
+    display: block;
+    width: 30px;
+
+    color: #444e5d;
+
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+
+}
+
+
+.up-scroller-btn-hero-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 8px;
+}
+
+.up-scroller-btn-hero-container .upscroller-btn-container{
+    width: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upscroller-btn-container i{
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.upscroller-btn-container i:hover{
+    background-color: var(--hoverColor);
+}
+
+
+.down-scroller-btn-hero-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 8px;
+}
+
+.down-scroller-btn-hero-container .downscroller-btn-container{
+    width: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.downscroller-btn-container i{
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.downscroller-btn-container i:hover{
+    background-color: var(--hoverColor);
+}
+
+
+
+
+/*  css for alarm popup (close-snooze popup) */
+
+.timer-popup-div-container{
+
+    position: absolute;
+    bottom: 20px;
+    /* bottom: -280px; */
+    right: 20px;
+
+    width: 370px;
+    height: 170px;
+    padding: 15px ;
+
+    display: block;
+
+    background-color: var(--backgroundColor);
+
+    border: 2px solid var(--borderColor);
+    border-radius: 8px;
+
+    z-index: 3;
+
+    animation: fadeIn 0.3s ease-in-out; 
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      bottom: -280px;
+    }
+    to {
+      opacity: 1;
+      bottom: 20px;
+    }
+  }
+
+
+.timer-heading-popup{
+    font-size: 18px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.timerTime-popup-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.timerTime-popup-div span{
+    display: block;
+
+    font-size: 30px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+.popup-buttons-container{
+    width: 100%;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.popup-buttons-container button{
+    /* width: 100%; */
+    flex: 1;
+    background-color: var(--hoverColor);
+    color: #4b5563;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 5px 15px;
+    border-radius: 8px;
+
+    border: 2px solid var(--borderColor) ;
+    outline: none;
+    cursor: pointer;
+}
+
+.popup-buttons-container button:hover{
+    background-color: #fff ;
+}
+
+
+
+
+
+
+
+
+
+
+

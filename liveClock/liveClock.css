@@ -1,0 +1,150 @@
+
+
+
+/* .countDown-hero-container-liveClock{
+
+} */
+
+main{
+    height: 100%;
+    width: 100%;
+}
+
+.liveClock-content-heroContainer{
+    height: 100%;
+    width: 100%;
+}
+
+.liveClock-main-container-two{
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countDown-hero-container-liveClock{
+    width: 100%;
+    margin-top: 100px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countDown-container-liveClock{
+    width: auto;
+    color: #4b5563 ;
+    display: flex;
+    align-items: baseline;
+
+}
+
+.countDown-container-liveClock span{
+    display: inline-block;
+    font-size: 110px;
+    text-align: center;
+    position: relative;
+
+}
+
+.countDown-container-liveClock span::after{
+    content: '';
+    font-size: 18px;
+    position: absolute;
+    bottom: -10px;
+    left: 26%;
+}
+
+#hours::after{
+    content: 'Hours';
+}
+#minitus::after{
+    content: 'Minitus';
+}
+#seconds::after{
+    content: 'Second';
+}
+
+
+.dateDay-hero-container-liveClock{
+    width: 100%;
+    margin-top: 13px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    align-items: baseline;
+}
+
+.dateDay-container-liveClock{
+    width: auto;
+}
+
+.dateDay-container-liveClock span{
+    display: inline-block;
+    font-size: 22px;
+    text-align: center;
+    position: relative;
+
+    color: #9ca3af;
+    /* color: #6b7280; */
+    font-weight: 500;
+    /* color: #4b5563; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
