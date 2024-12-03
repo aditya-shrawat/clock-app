@@ -133,6 +133,31 @@ let timerMainContainer = document.getElementsByClassName("timer-inner-main-conta
 
 let timers = [] ;   // to store different timers content
 
+
+// if there is not alarm then this shows up and if alarm is added then this get removed
+var TrackHeroContainer =  undefined;
+function checkThereIsTimer(){
+    if(timers.length===0){
+        let HeroContainer = document.createElement("div") ;
+        HeroContainer.classList.add("HeroContainer") ;
+        HeroContainer.innerHTML = `<div class="innerContainer" >
+                <h1><i class="fa-regular fa-hourglass"></i></h1>
+                <h1>You dont have any timers.</h1>
+                <h3>Select "+" below to add a timer.</h3>
+            </div>`
+                
+        timerMainContainer.appendChild(HeroContainer) ;
+        TrackHeroContainer = document.getElementsByClassName("HeroContainer")[0]
+    }
+    else{
+        if(TrackHeroContainer!==undefined){
+            TrackHeroContainer.remove() ;
+        }
+    }
+}
+checkThereIsTimer()
+
+
 //  updating the input bar for new alarm
 inputBar.value = `Timer (${timers.length +1})` ;  // initial default heading
 
@@ -156,6 +181,7 @@ function save1Fxn(){
 
     // closing the popup window
     closePopup();
+    checkThereIsTimer() // checking is there is any timer or not
 }
 
 // just creating another timer 
@@ -209,6 +235,8 @@ function createNewTimerConten(timer){
         const indexToRemove = di.getAttribute('data-index');
         timers.splice(indexToRemove, 1);
         timerContent.remove();
+
+        checkThereIsTimer()  // checking that there is any timer or not
     });
 
     // setting heading

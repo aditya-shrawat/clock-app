@@ -33,6 +33,42 @@ main{
     gap: 15px; 
 }
 
+.HeroContainer{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HeroContainer .innerContainer{
+    height: auto;
+    width: auto;
+}
+
+.HeroContainer .innerContainer h1{
+    color: #374151;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.HeroContainer .innerContainer h1 i{
+    font-size: 35px;
+}
+
+.HeroContainer .innerContainer h3{
+    color:#909090;
+    font-size: 16px;
+}
+
+.HeroContainer .innerContainer h1,h3{
+    text-align: center;
+}
+
+
+
 .timer-content-div-container{
     background-color: var(--backgroundColor); 
 

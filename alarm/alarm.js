@@ -108,6 +108,31 @@ let alarmMainContainer = document.getElementsByClassName("alarm-inner-main-conta
 let rDayArr = [] ;  // storing repetation days
 let alarms = [] ;   // to store different alarms content
 
+
+// if there is not alarm then this shows up and if alarm is added then this get removed
+var TrackHeroContainer =  undefined;
+function checkThereIsAlarm(){
+    if(alarms.length===0){
+        let HeroContainer = document.createElement("div") ;
+        HeroContainer.classList.add("HeroContainer") ;
+        HeroContainer.innerHTML = `<div class="innerContainer" >
+                <h1><i class="fa-regular fa-hourglass"></i></h1>
+                <h1>You dont have any alarms.</h1>
+                <h3>Select "+" below to add a alarm.</h3>
+            </div>`
+                
+        alarmMainContainer.appendChild(HeroContainer) ;
+        TrackHeroContainer = document.getElementsByClassName("HeroContainer")[0]
+    }
+    else{
+        if(TrackHeroContainer!==undefined){
+            TrackHeroContainer.remove() ;
+        }
+    }
+}
+checkThereIsAlarm()
+
+
 //  updating the input bar for new alarm
 inputBar.value = `Alarm (${alarms.length +1})` ;
 
@@ -136,6 +161,7 @@ function save1Fxn(){
 
     // closing the popup window
     closePopup();
+    checkThereIsAlarm()   // checking that there is any alaram or not 
 }
 
 
@@ -176,6 +202,8 @@ function createNewAlarmConten(alarm){
         const indexToRemove = di.getAttribute('data-index');
         alarms.splice(indexToRemove, 1);
         alarmContent.remove();
+
+        checkThereIsAlarm()   // checking that there is any alaram or not 
 
         // console.log('after removing :', alarms);
     });
