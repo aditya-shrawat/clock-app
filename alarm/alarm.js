@@ -188,25 +188,15 @@ function createNewAlarmConten(alarm){
     alarmContent.appendChild(alarmTimeDiv)
 
     //  delte icon
-    let di = document.createElement('i') ;
-    di.classList.add("fa-regular","fa-trash-can") ;
-    di.classList.add("deleteBtn") ;
+    let deleteBtn = document.createElement('i') ;
+    deleteBtn.classList.add("fa-regular","fa-trash-can") ;
+    deleteBtn.classList.add("deleteBtn") ;
     // alarmContent.appendChild(di) ;
 
     const alarmIndex = alarms.length - 1; // finding index of the added alarm
-    di.setAttribute('data-index', alarmIndex);
+    deleteBtn.setAttribute('data-index', alarmIndex);
 
-    alarmContent.appendChild(di);
-
-    di.addEventListener('click', () => {
-        const indexToRemove = di.getAttribute('data-index');
-        alarms.splice(indexToRemove, 1);
-        alarmContent.remove();
-
-        checkThereIsAlarm()   // checking that there is any alaram or not 
-
-        // console.log('after removing :', alarms);
-    });
+    alarmContent.appendChild(deleteBtn);
 
     //  remanig time text 
     let remaningTime = document.createElement('div') ;
@@ -217,13 +207,23 @@ function createNewAlarmConten(alarm){
     di2.classList.add("fa-solid","fa-bell") ;
     remaningTime.appendChild(timeText);
 
-    setInterval(()=>{  // interval so that remaning time update as time passes 
-        // remaningTime.innerHTML = calculateRemainingTime(alarm.time.hours, alarm.time.minutes,alarms[alarmIndex])
-        timeText.textContent = calculateRemainingTime(alarm.time.hours, alarm.time.minutes,alarms[alarmIndex])
-    },1000);
+    const remaningTimeInterval = setInterval(()=>{  // interval so that remaning time update as time passes
+            timeText.textContent = calculateRemainingTime(alarm.time.hours, alarm.time.minutes,alarms[alarmIndex])
+        },1000);
 
     remaningTime.prepend(di2) ;   // using prepend so that bell icon show in front of remaning time 
     alarmContent.appendChild(remaningTime) ;   // adding it t alarmContent
+
+    // delete button functionality for alarm (delete alarm and clear interval)
+    deleteBtn.addEventListener('click', () => {
+        const indexToRemove = deleteBtn.getAttribute('data-index');
+        alarms.splice(indexToRemove, 1);
+        alarmContent.remove();
+
+        clearInterval(remaningTimeInterval);  // clear "remaningTimeInterval" interval 
+
+        checkThereIsAlarm()   // checking that there is any alaram or not 
+    });
 
     // setting heading
     let alarmHeading = document.createElement('h3') ;
@@ -292,7 +292,6 @@ function calculateRemainingTime(hr, mini,alarm) {
         if(alarm.yess!==false){
             alarm.yess = false ;
             playAlarm() ;
-            // showPopup(alarms[alarmIndex], alarmIndex);
             showPopup(alarm);
         }
         
