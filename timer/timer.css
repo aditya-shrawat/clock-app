@@ -473,7 +473,7 @@ main{
 
 
 
-/*  css for alarm popup (close-snooze popup) */
+/*  css for alarm popup (close popup) */
 
 .timer-popup-div-container{
 
@@ -486,7 +486,9 @@ main{
     height: 170px;
     padding: 15px ;
 
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     background-color: var(--backgroundColor);
 
@@ -516,6 +518,7 @@ main{
     font-size: 18px;
     font-weight: 500;
     color: #374151;
+    text-align: left;
 }
 
 .timerTime-popup-div{
@@ -523,7 +526,7 @@ main{
     display: flex;
     align-items: center;
 
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .timerTime-popup-div span{
@@ -537,14 +540,9 @@ main{
 
 .popup-buttons-container{
     width: 100%;
-
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 
 .popup-buttons-container button{
-    /* width: 100%; */
     flex: 1;
     background-color: var(--hoverColor);
     color: #4b5563;

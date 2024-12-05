@@ -80,7 +80,7 @@ main{
     border-radius: 5px;
     border: 1px solid var(--borderColor);
 
-    height: 200px; 
+    height: 180px; 
     max-width: 400px;
 
     padding: 10px 15px ;
@@ -117,12 +117,14 @@ main{
     font-size: 14px;
     font-weight: 500;
     color: #909090;
+    margin-bottom: 10px;
 }
 
 .alarm-content-div-container .alarm-heading{
     font-size: 22px;
     font-weight: 500;
     color: #374151;
+    text-align: left;
 }
 
 
@@ -145,7 +147,7 @@ main{
 
 
 .days-container2{
-    margin-top: 10px;
+    margin-top: 12px;
     display: flex;
     width: 250px;
     justify-content: space-between;
@@ -164,12 +166,13 @@ main{
     color: #909090;
     font-size: 12px;
 
-    /* border: 2px solid #f9fafb; */
+    border: 2px solid #e5e7eb;
 }
 
  .days1.active{
     background-color: #4F8EF4;
     color: #fff;
+    border: none;
 }
 
 .alarm-add-button-container{
@@ -516,13 +519,14 @@ main{
     right: 20px;
 
     width: 370px;
-    height: 250px;
+    height: 220px;
     padding: 15px ;
 
     display: block;
 
     background-color: var(--backgroundColor);
     border-radius: 8px;
+    border: 2px solid var(--borderColor);
 
     z-index: 3;
 
@@ -547,6 +551,8 @@ main{
     font-size: 18px;
     font-weight: 500;
     color: #374151;
+    text-align: left;
+    margin-bottom: 6px;
 }
 
 .alarmTime-popup-div{
@@ -569,8 +575,9 @@ main{
     font-size: 16px;
     font-weight: 500;
     color: #374151;
+    text-align: left;
 
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .snooze_Select{
@@ -580,10 +587,10 @@ main{
     padding: 5px;
 
     outline: none;
-    border: 2px solid #f9fafb;
+    border: 2px solid var(--borderColor);
     border-radius: 5px;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     font-size: 18px;
     font-weight: 500;
@@ -600,13 +607,15 @@ main{
 }
 
 .popup-buttons-container button{
-    width: 48%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    /* width: 180px; */
     background-color: var(--hoverColor);
     color: #4b5563;
     font-size: 18px;
     font-weight: 500;
 
-    padding: 5px 15px;
+    padding: 5px 48px;
     border-radius: 8px;
 
     border: 2px solid var(--borderColor) ;
