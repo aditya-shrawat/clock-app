@@ -4,7 +4,6 @@
 let addTimer = document.getElementById("add-newTimer");
 let modalDiv = document.getElementsByClassName("outerContainer")[0];
 let cancelBtn = document.getElementById("cancleTimer");
-let heroContainer = document.getElementsByClassName("timer-outer-hero-container")[0];
 
 
 addTimer.addEventListener('click', () => {
@@ -222,17 +221,17 @@ function createNewTimerConten(timer){
     timerContent.appendChild(circularProgress)
 
     //  delte icon
-    let di = document.createElement('i') ;
-    di.classList.add("fa-regular","fa-trash-can") ;
-    di.classList.add("deleteBtn") ;
+    let deleteBtn = document.createElement('i') ;
+    deleteBtn.classList.add("fa-regular","fa-trash-can") ;
+    deleteBtn.classList.add("deleteBtn") ;
 
     const timerIndex = timers.length - 1; // finding index of the added timer
-    di.setAttribute('data-index', timerIndex);
+    deleteBtn.setAttribute('data-index', timerIndex);
 
-    timerContent.appendChild(di);
+    timerContent.appendChild(deleteBtn);
 
-    di.addEventListener('click', () => {
-        const indexToRemove = di.getAttribute('data-index');
+    deleteBtn.addEventListener('click', () => {
+        const indexToRemove = deleteBtn.getAttribute('data-index');
         timers.splice(indexToRemove, 1);
         timerContent.remove();
 
@@ -274,7 +273,7 @@ function createNewTimerConten(timer){
 
     // adding functionalty to start btn so the timer get start 
     startBtn.onclick = function(){
-        startCountdown(startBtn,restartBtn,circularProgress,span1,span3,span5,timerHeading.innerHTML) ;
+        startCountdown(startBtn,restartBtn,deleteBtn,circularProgress,span1,span3,span5,timerHeading.innerHTML) ;
     }
 
     // adding timer content to the screen
@@ -298,7 +297,7 @@ function calculateTimeInSeconds(hours,minutes,seconds){
 }
 
 // function to start and render the timer 
-function startCountdown(startBtn,restartBtn, circularProgress, span1, span3, span5,TimerHeading) {
+function startCountdown(startBtn,restartBtn,deleteBtn,circularProgress, span1, span3, span5,TimerHeading) {
     
     let Timer = null; // declared Timer to contain interval 
     let isStart = true ; // timer is start or not
@@ -355,7 +354,9 @@ function startCountdown(startBtn,restartBtn, circularProgress, span1, span3, spa
                 updateDisplay();
                 circularProgress.style.background = `conic-gradient(#E9ECEF 0deg, #E9ECEF 360deg)`;
 
-                showPopup(isStart,startBtnFunctionality,circularProgress, span1, span3, span5, initialHours, initialMinutes, initialSeconds,hours, minutes, seconds,TimerHeading);
+                showPopup(isStart,startBtnFunctionality,circularProgress, span1, span3, span5, initialHours, initialMinutes, initialSeconds,TimerHeading);
+                hours=initialHours;minutes=initialMinutes;seconds=initialSeconds;  //
+                currentValue = duration ;   // reset currentValue and hours,minutes and seconds
                 playTimer();
                 return;
             }
@@ -418,6 +419,12 @@ function startCountdown(startBtn,restartBtn, circularProgress, span1, span3, spa
         circularProgress.style.background = `conic-gradient(#4F8EF4 360deg, #E9ECEF 0deg)`;
         startTimer(); // Restart the timer
     };
+
+    // when the timer get delete 
+    deleteBtn.onclick = ()=>{
+        console.log("Timer is deleted ")
+        clearInterval(Timer) //clear interval
+    }
 }
 
 
@@ -428,7 +435,8 @@ function playTimer() {
 }
 
 //  showing timer snooze - close popup
-function showPopup(isStart,startBtnFunctionality,circularProgress,span1, span3, span5,initialHours,initialMinutes,initialSeconds,hours, minutes, seconds,TimerHeading){
+const timerheroContainer = document.getElementsByClassName("timer-outer-hero-containerr")[0];
+function showPopup(isStart,startBtnFunctionality,circularProgress,span1, span3, span5,initialHours,initialMinutes,initialSeconds,TimerHeading){
     const popupContainer = document.createElement('div')
     popupContainer.classList.add("timer-popup-div-container") ;
 
@@ -473,13 +481,7 @@ function showPopup(isStart,startBtnFunctionality,circularProgress,span1, span3, 
 
         span1.innerHTML = initialHours < 10 ? '0' + initialHours : initialHours;
         span3.innerHTML = initialMinutes < 10 ? '0' + initialMinutes : initialMinutes;
-        span5.innerHTML = initialSeconds < 10 ? '0' + initialSeconds : initialSeconds;
-        hours = initialHours ;
-        minutes = initialMinutes;
-        seconds = initialSeconds;
-
-        // console.log("in popup - dismiss")
-        // console.log("hours =",hours," minutus =",minutes," seconds =",seconds) ;
+        span5.innerHTML = initialSeconds < 10 ? '0' + initialSeconds : initialSeconds;  // reset timer display time
 
         circularProgress.style.background = `conic-gradient(#4F8EF4 360deg, #E9ECEF 0deg)`;
 
@@ -490,7 +492,7 @@ function showPopup(isStart,startBtnFunctionality,circularProgress,span1, span3, 
     })
     popupContainer.appendChild(popupButtons) ;
 
-    heroContainer.appendChild(popupContainer);
+    timerheroContainer.appendChild(popupContainer);  //poupup added to screeen
 }
 
 
