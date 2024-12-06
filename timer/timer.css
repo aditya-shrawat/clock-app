@@ -14,6 +14,8 @@
 main{
     height: 100%;
     width: 100%;
+
+    background-color: rgba(248, 249, 250,0.4);
 }
 
 .timer-outer-main-container {
@@ -70,21 +72,30 @@ main{
 
 
 .timer-content-div-container{
-    background-color: var(--backgroundColor); 
-
+    /* background-color: var(--backgroundColor);  */
+    background-color: #fff;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     border: 1px solid var(--borderColor);  
 
-    height: 330px; 
+    height: 300px; 
     padding: 15px ;
+    padding-top: 40px;
     max-width: 400px;
 
     border-radius: 5px;
 
     position: relative;
+    transition: transform 0.1s ease-in;
+}
+
+.timer-content-div-container:hover{
+    background-color: var(--backgroundColor) ;
+    box-shadow: 0px 2px 6px rgba(109, 109, 109, 0.2);
+    transform: translate(0px , -3px);
 }
 
 .timer-content-div-container .timer-heading{
@@ -99,8 +110,8 @@ main{
 
 .deleteBtn{
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 10px;
+    top: 10px;
 
     padding: 8px;
     border-radius: 8px;
@@ -172,8 +183,10 @@ main{
     border-radius: 50%;
 
     color: rgb(88, 88, 88);
-    font-size: 17px;
-    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border:3px solid var(--borderColor);
     outline: none;
     cursor: pointer;

@@ -17,6 +17,8 @@
 main{
     height: 100%;
     width: 100%;
+
+    background-color: rgba(248, 249, 250,0.4);
 }
 
 .alarm-outer-main-container{
@@ -76,28 +78,25 @@ main{
 
 
 .alarm-content-div-container{
-    background-color: var(--backgroundColor);
+    /* background-color: var(--backgroundColor); */
+    background-color: #fff;
     border-radius: 5px;
     border: 1px solid var(--borderColor);
 
-    height: 180px; 
+    height: 200px; 
     max-width: 400px;
 
     padding: 10px 15px ;
 
     position: relative;
+    transition: transform 0.1s ease-in;
 }
 
-
-/* .content-container{
-    margin: auto;
-    width: 330px;
-    height: 100%;
-
-    padding: 20px 20px;
-
-    background-color: yellow;
-} */
+.alarm-content-div-container:hover{
+    background-color: var(--backgroundColor) ;
+    box-shadow: 0px 2px 6px rgba(109, 109, 109, 0.2);
+    transform: translate(0px , -3px);
+}
 
 .alarmTime-div{
     display: flex;
@@ -130,8 +129,8 @@ main{
 
 .deleteBtn{
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 10px;
+    top: 10px;
 
     padding: 8px;
     border-radius: 8px;
@@ -194,6 +193,7 @@ main{
     background-color: var(--backgroundColor);
 
     box-shadow: 5px 8px 10px #c9cccf;
+    cursor: pointer;
 
     display: flex;
     justify-content: center;
@@ -208,9 +208,12 @@ main{
     color: #4b5563;
 
     padding: 7px 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 
     z-index: 2;
+}
+.add-button-container i:hover{
+    background-color: var(--hoverColor);
 }
 
 .addBlure{

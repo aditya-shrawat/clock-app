@@ -137,19 +137,19 @@ function markedDataFxn(){
     newLi.classList.add("containers-data");
 
     let srnDiv = document.createElement('div') ;
-    srnDiv.classList.add("srnDiv") ;
+    srnDiv.classList.add("srnDiv") ;  // serial no div 
     srnDiv.innerHTML = srNo ;
     newLi.appendChild(srnDiv) ;
 
     let differenceDiv = document.createElement('div') ;
-    differenceDiv.classList.add("diffDiv") ;
+    differenceDiv.classList.add("diffDiv") ;  // time difference div 
     newLi.appendChild(differenceDiv) ;
 
     let currentDiv = document.createElement('div') ;
-    currentDiv.classList.add("currDiv") ;
+    currentDiv.classList.add("currDiv") ;   // current time div
     newLi.appendChild(currentDiv) ;
 
-    ulContainer.appendChild(newLi) ;
+    ulContainer.prepend(newLi) ;
 
     let hrs = parseInt(hours.innerHTML);
     let min = parseInt(minitus.innerHTML);
