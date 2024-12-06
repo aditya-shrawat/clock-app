@@ -318,7 +318,7 @@ function showPopup(alarm){
 
     const popupHeading = document.createElement('h3')
     popupHeading.classList.add("alarm-heading-popup") ;
-    popupHeading.innerHTML = 'heading 000' ;
+    popupHeading.innerHTML = alarm.label ;
     popupContainer.appendChild(popupHeading) ;
 
     const alarmTimePopup = document.createElement('div')
