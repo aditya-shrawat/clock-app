@@ -365,14 +365,16 @@ function showPopup(alarm){
 
 
     const popupButtons = document.createElement('div') ;
-    popupButtons.classList.add("popup-buttons-container") ;
+    popupButtons.classList.add("alarm-popup-buttons-container") ;
 
     const snoozeBtn = document.createElement('button') ;
     snoozeBtn.innerHTML = "Snooze"
+    snoozeBtn.classList.add("buttons") ;
     popupButtons.appendChild(snoozeBtn) ;
 
     const dismissBtn = document.createElement('button') ;
     dismissBtn.innerHTML = "Dismiss"
+    dismissBtn.classList.add("buttons") ;
     popupButtons.appendChild(dismissBtn) ;
     dismissBtn.addEventListener('click',()=>{
         popupContainer.remove();

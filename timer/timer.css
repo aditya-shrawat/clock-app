@@ -538,12 +538,13 @@ main{
 }
 
 
-.popup-buttons-container{
+.timer-popup-buttons-container{
     width: 100%;
 }
 
-.popup-buttons-container button{
-    flex: 1;
+.timer-popup-buttons-container button{
+    /* flex: 1; */
+    width: 100%;
     background-color: var(--hoverColor);
     color: #4b5563;
     font-size: 18px;
@@ -557,7 +558,7 @@ main{
     cursor: pointer;
 }
 
-.popup-buttons-container button:hover{
+.timer-popup-buttons-container button:hover{
     background-color: #fff ;
 }
 

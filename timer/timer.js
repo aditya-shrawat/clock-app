@@ -470,7 +470,7 @@ function showPopup(isStart,startBtnFunctionality,circularProgress,span1, span3, 
 
 
     const popupButtons = document.createElement('div') ;
-    popupButtons.classList.add("popup-buttons-container") ;
+    popupButtons.classList.add("timer-popup-buttons-container") ;
 
     const dismissBtn = document.createElement('button') ;
     dismissBtn.innerHTML = "Dismiss"
