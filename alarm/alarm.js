@@ -148,7 +148,7 @@ function save1Fxn(){
         },
         days: [...rDayArr],  // copy the weekdays when we have to repeate the alarm
         label: inputBar.value,  // Save alarm heading 
-        yess: true
+        on: true  // alarm will repeate on not // alarm will ring or not
     };
 
     alarms.push(alarm);
@@ -187,16 +187,36 @@ function createNewAlarmConten(alarm){
 
     alarmContent.appendChild(alarmTimeDiv)
 
-    //  delte icon
+    // "alarmEditButtonContainer" div
+    const EditButtonContainer = document.createElement("div");
+    EditButtonContainer.classList.add("alarmEditButtonContainer") ;
+
+    // creating toggle button
+    const toggleContainer = document.createElement("div") 
+    toggleContainer.classList.add("toggle-container")
+    const toggleSwitch = document.createElement("div")
+    toggleSwitch.classList.add("toggle-switch")
+    toggleSwitch.classList.add("active")
+
+    toggleContainer.appendChild(toggleSwitch)
+    EditButtonContainer.appendChild(toggleContainer)   // toggleConatiner added to EditButtonContainer
+
+    // delete button container
+    const deleteContainer = document.createElement("div")
+    deleteContainer.classList.add("deleteContainer")
+
+    //  delte button
     let deleteBtn = document.createElement('i') ;
     deleteBtn.classList.add("fa-regular","fa-trash-can") ;
-    deleteBtn.classList.add("deleteBtn") ;
-    // alarmContent.appendChild(di) ;
+    deleteBtn.classList.add("alarmDeleteBtn") ;
 
     const alarmIndex = alarms.length - 1; // finding index of the added alarm
     deleteBtn.setAttribute('data-index', alarmIndex);
 
-    alarmContent.appendChild(deleteBtn);
+    deleteContainer.appendChild(deleteBtn) // deleteBtn added to deleteContainer
+    EditButtonContainer.appendChild(deleteContainer) ; // deleteContainer added to EditButtonContainer
+
+    alarmContent.appendChild(EditButtonContainer) ;  // 
 
     //  remanig time text 
     let remaningTime = document.createElement('div') ;
@@ -212,7 +232,16 @@ function createNewAlarmConten(alarm){
         },1000);
 
     remaningTime.prepend(di2) ;   // using prepend so that bell icon show in front of remaning time 
-    alarmContent.appendChild(remaningTime) ;   // adding it t alarmContent
+    alarmContent.appendChild(remaningTime) ;   // adding it to alarmContent
+
+    // setting heading
+    let alarmHeading = document.createElement('h3') ;
+    alarmHeading.classList.add("alarm-heading") ;
+    alarmHeading.innerHTML = inputBar.value.trim()!=="" ? inputBar.value : `Alarm (${alarms.length})` ; // heading according to user input or default 
+
+    //  updating the input bar for new alarm
+    inputBar.value = `Alarm (${alarms.length +1})` ;
+    alarmContent.appendChild(alarmHeading) ;
 
     // delete button functionality for alarm (delete alarm and clear interval)
     deleteBtn.addEventListener('click', () => {
@@ -225,15 +254,22 @@ function createNewAlarmConten(alarm){
         checkThereIsAlarm()   // checking that there is any alaram or not 
     });
 
-    // setting heading
-    let alarmHeading = document.createElement('h3') ;
-    alarmHeading.classList.add("alarm-heading") ;
-    alarmHeading.innerHTML = inputBar.value.trim()!=="" ? inputBar.value : `Alarm (${alarms.length})` ; // heading according to user input or default 
-
-    //  updating the input bar for new alarm
-    inputBar.value = `Alarm (${alarms.length +1})` ;
-
-    alarmContent.appendChild(alarmHeading) ;
+    // toggle button functionality 
+    toggleSwitch.addEventListener('click', () => {
+        toggleSwitch.classList.toggle('active');
+        if(toggleSwitch.classList.contains('active')){
+            alarm.on = true ;
+            // console.log("on = ",alarm.on)
+            alarmTimeDiv.classList.remove("alarmIsOff")
+            alarmHeading.classList.remove("alarmIsOff")
+        }
+        else{
+            alarm.on = false ;
+            // console.log("on = ",alarm.on)
+            alarmTimeDiv.classList.add("alarmIsOff")
+            alarmHeading.classList.add("alarmIsOff")
+        }
+    });
 
     // creating days list on which alarm will get repeat
 
@@ -288,9 +324,8 @@ function calculateRemainingTime(hr, mini,alarm) {
     }
 
     if(timeDiff==0){
-        
-        if(alarm.yess!==false){
-            alarm.yess = false ;
+        if(alarm.on!==false){
+            alarm.on = false ;
             playAlarm() ;
             showPopup(alarm);
         }
@@ -379,12 +414,13 @@ function showPopup(alarm){
     dismissBtn.addEventListener('click',()=>{
         popupContainer.remove();
         alarmAudio.pause(); // Stop the alarm sound
+        // * resovle on of problem for this 
     })
 
     snoozeBtn.addEventListener('click', () => {
         const snoozeTime = parseInt(snoozeSelect.value);   //selected snooze duration
         alarm.time.minutes = alarm.time.minutes + snoozeTime
-        alarm.yess= true ;
+        alarm.on= true ;   // change alarm status for next repeatation
 
         // if minutes exceed 59
         if (alarm.time.minutes >= 60) {
